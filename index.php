@@ -21,7 +21,11 @@ if($_SERVER['HTTP_ACCEPT'] === 'text/csv')
 	// TODO: Use accept header for this
 	exec("ssconvert --export-type=Gnumeric_stf:stf_csv $arg1 $arg2");
 
-	readfile($output);	
+	readfile($output);
+
+	// Cleanup
+	unlink($input);
+	unlink($output);
 }
 else
 {
