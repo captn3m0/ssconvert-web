@@ -18,8 +18,11 @@ if($_SERVER['HTTP_ACCEPT'] === 'text/csv')
 	$arg2 = escapeshellarg($output);
 
 
+	$return = null;
 	// TODO: Use accept header for this
-	exec("ssconvert --export-type=Gnumeric_stf:stf_csv $arg1 $arg2");
+	exec("ssconvert --export-type=Gnumeric_stf:stf_csv $arg1 $arg2 >/dev/null 2>&1", $return);
+
+	// TODO: Check $return before giving reading the file etc
 
 	readfile($output);
 

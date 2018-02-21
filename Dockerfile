@@ -1,8 +1,6 @@
 FROM alpine:3.7
 
-RUN apk --no-cache add gnumeric
-
-RUN apk --no-cache add php5
+RUN apk --no-cache add gnumeric php5 fontconfig ttf-opensans
 
 # Not sure why this is necessary, copied it from
 # an existing ssconvert image		
